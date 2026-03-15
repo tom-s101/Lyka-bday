@@ -387,6 +387,100 @@
         .make-wish-btn:hover { background: var(--rose-light); transform: scale(1.03); }
         .make-wish-btn:active { transform: scale(0.98); }
 
+        /* ===== HEARTBEAT EFFECT ===== */
+        @keyframes heartbeatGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(196, 114, 127, 0.5); }
+            25% { box-shadow: 0 0 0 6px rgba(196, 114, 127, 0.25); }
+            50% { box-shadow: 0 0 0 0 rgba(196, 114, 127, 0); }
+            65% { box-shadow: 0 0 0 4px rgba(196, 114, 127, 0.2); }
+            80% { box-shadow: 0 0 0 0 rgba(196, 114, 127, 0); }
+        }
+
+        .heartbeat { animation: heartbeatGlow 2.5s ease-in-out infinite; }
+
+        /* Intro button heartbeat */
+        .intro-btn { animation: introFadeIn 2s ease 1s both, heartbeatGlow 2.5s ease-in-out 3s infinite; }
+
+        /* Make wish button heartbeat */
+        .make-wish-btn { animation: heartbeatGlow 2.5s ease-in-out infinite; }
+
+        /* Cascade dots heartbeat when active */
+        .cascade-block.active::before {
+            animation: heartbeatGlow 2.5s ease-in-out infinite;
+        }
+
+        /* Acrostic letter heartbeat text glow */
+        @keyframes textHeartbeat {
+            0%, 100% { text-shadow: 0 0 0 rgba(196, 114, 127, 0); }
+            25% { text-shadow: 0 0 12px rgba(196, 114, 127, 0.4); }
+            50% { text-shadow: 0 0 0 rgba(196, 114, 127, 0); }
+            65% { text-shadow: 0 0 8px rgba(196, 114, 127, 0.3); }
+            80% { text-shadow: 0 0 0 rgba(196, 114, 127, 0); }
+        }
+
+        .acrostic-row.visible .acrostic-letter {
+            animation: textHeartbeat 3s ease-in-out infinite;
+        }
+
+        .acrostic-row:nth-child(2).visible .acrostic-letter { animation-delay: 0.4s; }
+        .acrostic-row:nth-child(3).visible .acrostic-letter { animation-delay: 0.8s; }
+        .acrostic-row:nth-child(4).visible .acrostic-letter { animation-delay: 1.2s; }
+
+        /* ===== TEXT MARQUEE ===== */
+        .marquee-section {
+            background: var(--blush);
+            padding: 5rem 1.5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .marquee-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .marquee-prefix {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 2.2rem;
+            color: var(--text);
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        .marquee-window {
+            height: 2.8rem;
+            overflow: hidden;
+            position: relative;
+            -webkit-mask-image: linear-gradient(transparent 0%, black 25%, black 75%, transparent 100%);
+            mask-image: linear-gradient(transparent 0%, black 25%, black 75%, transparent 100%);
+        }
+
+        .marquee-track {
+            position: relative;
+            height: 100%;
+        }
+
+        @keyframes slideVertical {
+            to { transform: translateY(var(--destination)); }
+        }
+
+        .marquee-item {
+            height: 2.8rem;
+            display: flex;
+            align-items: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-style: italic;
+            font-size: 2.2rem;
+            color: var(--rose);
+            white-space: nowrap;
+        }
+
         .next-page-link {
             display: inline-block; margin-top: 2rem;
             font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
@@ -452,6 +546,9 @@
             .acrostic-letter { font-size: 4.5rem; width: 60px; }
             .acrostic-text { font-size: 1rem; }
             .final-section .section-heading { font-size: 3rem; }
+            .marquee-prefix, .marquee-item { font-size: 3rem; }
+            .marquee-window { height: 3.6rem; }
+            .marquee-item { height: 3.6rem; }
         }
 
         @media (min-width: 1024px) {
@@ -538,6 +635,30 @@
             <p data-text-reveal>You have this rare, quiet magic about you. The kind of person who notices the small things, who cares deeply, who makes people feel at home just by being near. Animals feel it too, and honestly, that says everything.</p>
             <p data-text-reveal>Thank you for being the friend who shows up, who listens, who makes ordinary days feel like something worth remembering. You deserve a year as beautiful and warm as you are.</p>
             <div class="letter-sign">With love, always</div>
+        </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <section class="marquee-section">
+        <div class="reveal">
+            <p class="section-label">In a word</p>
+            <div class="marquee-container">
+                <span class="marquee-prefix">Lyka is</span>
+                <div class="marquee-window">
+                    <div class="marquee-track" id="marqueeTrack">
+                        <div class="marquee-item">kind</div>
+                        <div class="marquee-item">radiant</div>
+                        <div class="marquee-item">brave</div>
+                        <div class="marquee-item">gentle</div>
+                        <div class="marquee-item">loved</div>
+                        <div class="marquee-item">warmth</div>
+                        <div class="marquee-item">magic</div>
+                        <div class="marquee-item">rare</div>
+                        <div class="marquee-item">home</div>
+                        <div class="marquee-item">everything</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1292,6 +1413,29 @@
     var burstStyle = document.createElement('style');
     burstStyle.textContent = '@keyframes burstHeart{0%{transform:translate(0,0) scale(.3);opacity:1}60%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}';
     document.head.appendChild(burstStyle);
+
+    // ==========================================================
+    //  TEXT MARQUEE
+    // ==========================================================
+    (function() {
+        var track = document.getElementById('marqueeTrack');
+        if (!track) return;
+        var items = track.querySelectorAll('.marquee-item');
+        var count = items.length;
+        var speed = 1.5; // seconds per item
+        var duration = speed * count;
+        var itemH = 2.8; // rem, matches CSS
+
+        items.forEach(function(item, i) {
+            var origin = (count - i) * 100;
+            var destination = (i + 1) * -100;
+            var delay = (duration / count) * i - duration;
+
+            item.style.transform = 'translateY(' + origin + '%)';
+            item.style.setProperty('--destination', destination + '%');
+            item.style.animation = 'slideVertical ' + duration + 's ' + delay + 's infinite linear';
+        });
+    })();
 
     // ==========================================================
     //  INIT
