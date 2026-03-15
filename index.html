@@ -924,6 +924,7 @@
 
         // Enter button
         document.getElementById('enterBtn').addEventListener('click', function() {
+            window.scrollTo(0, 0);
             document.getElementById('intro').classList.add('hidden');
             setTimeout(function() {
                 running = false;
@@ -938,8 +939,10 @@
     // ==========================================================
     const digitManager = {
         columns: {},
+        revealed: {},   // track which counters have done the count-up
+        animating: {},  // track which are mid-count-up
 
-        buildDigits: function(el, numStr) {
+        buildDigits: function(el, numStr, startAtZero) {
             el.innerHTML = '';
             const id = el.getAttribute('data-counter-id');
             this.columns[id] = [];
@@ -962,22 +965,62 @@
                         sp.textContent = d;
                         reel.appendChild(sp);
                     }
-                    // Start at random position for reveal effect
-                    const rand = Math.floor(Math.random() * 10);
-                    reel.style.transform = 'translateY(' + (-rand * 1.3) + 'em)';
+                    // If startAtZero, park at 0; otherwise random
+                    const startDigit = startAtZero ? 0 : Math.floor(Math.random() * 10);
+                    reel.style.transform = 'translateY(' + (-startDigit * 1.3) + 'em)';
                     reel.style.transition = 'none';
                     col.appendChild(reel);
                     el.appendChild(col);
-                    this.columns[id].push({ reel: reel, current: rand });
+                    this.columns[id].push({ reel: reel, current: startDigit });
+                }
+            }
+        },
+
+        // Animate count from 0 to targetNum then switch to live mode
+        countUpTo: function(el, targetNum, numStr, callback) {
+            const id = el.getAttribute('data-counter-id');
+            if (this.animating[id]) return;
+            this.animating[id] = true;
+
+            // Build digit columns starting at 0
+            this.buildDigits(el, numStr, true);
+            const self = this;
+            const duration = 3000; // 3 seconds, slower than globe
+            const start = performance.now();
+
+            function formatNum(n) {
+                return Math.round(n).toLocaleString();
+            }
+
+            function tick(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease-out cubic for smooth deceleration
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = eased * targetNum;
+                const formatted = formatNum(current);
+
+                // Rebuild if digit count changed (number growing)
+                const cols = self.columns[id];
+                if (!cols || cols.length !== formatted.length) {
+                    self.buildDigits(el, formatted, false);
+                }
+                self.setDigits(el, formatted, progress < 0.05);
+
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    // Final exact value
+                    self.setDigits(el, numStr, true);
+                    self.revealed[id] = true;
+                    self.animating[id] = false;
+                    if (callback) callback();
                 }
             }
 
-            // Animate to real digits after a brief pause
-            const self = this;
+            // Small delay so the DOM builds first
             requestAnimationFrame(function() {
-                requestAnimationFrame(function() {
-                    self.setDigits(el, numStr, true);
-                });
+                requestAnimationFrame(tick);
             });
         },
 
@@ -986,14 +1029,25 @@
             const cols = this.columns[id];
             if (!cols) return;
 
-            // Handle length change (number grew a digit)
-            const expectedLen = numStr.length;
-            if (cols.length !== expectedLen) {
-                this.buildDigits(el, numStr);
+            // Handle length change
+            if (cols.length !== numStr.length) {
+                this.buildDigits(el, numStr, false);
+                // Re-fetch after rebuild
+                const newCols = this.columns[id];
+                if (!newCols) return;
+                for (let i = 0; i < numStr.length; i++) {
+                    var ch2 = numStr[i];
+                    if (ch2 === ',') continue;
+                    var c2 = newCols[i];
+                    if (!c2) continue;
+                    var t2 = parseInt(ch2);
+                    c2.reel.style.transition = 'transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)';
+                    c2.reel.style.transform = 'translateY(' + (-t2 * 1.3) + 'em)';
+                    c2.current = t2;
+                }
                 return;
             }
 
-            let digitIdx = 0;
             for (let i = 0; i < numStr.length; i++) {
                 const ch = numStr[i];
                 if (ch === ',') continue;
@@ -1001,11 +1055,10 @@
                 if (!col) continue;
                 const target = parseInt(ch);
                 if (col.current !== target || firstTime) {
-                    col.reel.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+                    col.reel.style.transition = 'transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)';
                     col.reel.style.transform = 'translateY(' + (-target * 1.3) + 'em)';
                     col.current = target;
                 }
-                digitIdx++;
             }
         }
     };
@@ -1065,21 +1118,19 @@
     // ==========================================================
     const birthday = new Date(2000, 5, 28);
     const counterEls = {};
-    let countersBuilt = false;
+    const rawVals = {}; // store raw numeric values for count-up
 
-    function updateCounters() {
+    function getCounterVals() {
         const diff = Date.now() - birthday.getTime();
         const s = Math.floor(diff / 1000);
         const m = Math.floor(s / 60);
         const h = Math.floor(m / 60);
         const d = Math.floor(h / 24);
+        return { cDays: d, cHours: h, cMinutes: m, cSeconds: s };
+    }
 
-        const vals = {
-            cDays: d.toLocaleString(),
-            cHours: h.toLocaleString(),
-            cMinutes: m.toLocaleString(),
-            cSeconds: s.toLocaleString()
-        };
+    function updateCounters() {
+        const vals = getCounterVals();
 
         for (var id in vals) {
             var el = counterEls[id];
@@ -1089,13 +1140,28 @@
             }
             if (!el) continue;
 
-            if (!countersBuilt) {
-                digitManager.buildDigits(el, vals[id]);
-            } else {
-                digitManager.setDigits(el, vals[id], false);
+            rawVals[id] = vals[id];
+            var numStr = vals[id].toLocaleString();
+
+            // Only do live digit updates if count-up has finished
+            if (digitManager.revealed[id]) {
+                digitManager.setDigits(el, numStr, false);
+            }
+            // If never built yet, build with zeros (will count up on scroll)
+            else if (!digitManager.columns[id]) {
+                digitManager.buildDigits(el, numStr, true);
             }
         }
-        countersBuilt = true;
+    }
+
+    // Trigger count-up for a specific counter when it scrolls into view
+    function triggerCountUp(id) {
+        if (digitManager.revealed[id] || digitManager.animating[id]) return;
+        var el = counterEls[id];
+        if (!el) return;
+        var val = rawVals[id];
+        if (val === undefined) return;
+        digitManager.countUpTo(el, val, val.toLocaleString());
     }
 
     updateCounters();
@@ -1128,7 +1194,17 @@
             var r = block.getBoundingClientRect();
             var delay = parseInt(block.getAttribute('data-delay')) || 0;
             if (r.top < vh * 0.85) {
-                setTimeout(function() { block.classList.add('visible'); }, delay * 250);
+                if (!block.classList.contains('visible')) {
+                    setTimeout(function() {
+                        block.classList.add('visible');
+                        // Trigger count-up animation for the counter inside this block
+                        var counterEl = block.querySelector('[data-counter-id]');
+                        if (counterEl) {
+                            var cid = counterEl.getAttribute('data-counter-id');
+                            setTimeout(function() { triggerCountUp(cid); }, 200);
+                        }
+                    }, delay * 250);
+                }
             }
             var inView = r.top < vh * 0.7 && r.bottom > vh * 0.3;
             block.classList.toggle('active', inView);
