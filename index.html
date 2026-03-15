@@ -29,9 +29,7 @@
             --text-faint: #b0a5a5;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -71,35 +69,16 @@
         }
 
         .hero-bg .blob:nth-child(1) {
-            width: 60vw;
-            height: 60vw;
-            max-width: 500px;
-            max-height: 500px;
-            background: var(--rose-pale);
-            top: -10%;
-            right: -15%;
+            width: 60vw; height: 60vw; max-width: 500px; max-height: 500px;
+            background: var(--rose-pale); top: -10%; right: -15%;
         }
-
         .hero-bg .blob:nth-child(2) {
-            width: 50vw;
-            height: 50vw;
-            max-width: 400px;
-            max-height: 400px;
-            background: var(--sage-pale);
-            bottom: -5%;
-            left: -10%;
-            animation-delay: -7s;
+            width: 50vw; height: 50vw; max-width: 400px; max-height: 400px;
+            background: var(--sage-pale); bottom: -5%; left: -10%; animation-delay: -7s;
         }
-
         .hero-bg .blob:nth-child(3) {
-            width: 30vw;
-            height: 30vw;
-            max-width: 250px;
-            max-height: 250px;
-            background: var(--rose-pale);
-            bottom: 20%;
-            right: 10%;
-            animation-delay: -13s;
+            width: 30vw; height: 30vw; max-width: 250px; max-height: 250px;
+            background: var(--rose-pale); bottom: 20%; right: 10%; animation-delay: -13s;
         }
 
         @keyframes drift {
@@ -107,92 +86,50 @@
             100% { transform: translate(30px, -20px) scale(1.05); }
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+        .hero-content { position: relative; z-index: 1; }
 
         .hero-date {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.2s forwards;
+            font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--text-light); margin-bottom: 2rem;
+            opacity: 0; animation: fadeIn 1s ease 0.2s forwards;
         }
 
         .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            font-size: 3.2rem;
-            line-height: 1.15;
-            color: var(--text);
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.5s forwards;
+            font-family: 'Cormorant Garamond', serif; font-weight: 400;
+            font-size: 3.2rem; line-height: 1.15; color: var(--text); margin-bottom: 1rem;
+            opacity: 0; animation: fadeIn 1s ease 0.5s forwards;
         }
 
-        .hero h1 em {
-            font-style: italic;
-            color: var(--rose);
-        }
+        .hero h1 em { font-style: italic; color: var(--rose); }
 
         .hero-sub {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.6;
-            max-width: 280px;
-            margin: 0 auto;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.8s forwards;
+            font-size: 0.9rem; color: var(--text-light); line-height: 1.6;
+            max-width: 280px; margin: 0 auto;
+            opacity: 0; animation: fadeIn 1s ease 0.8s forwards;
         }
 
         .hero-age {
-            display: inline-block;
-            margin-top: 2.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 5rem;
-            font-weight: 500;
-            color: var(--rose);
-            line-height: 1;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.1s forwards;
-            position: relative;
+            display: inline-block; margin-top: 2.5rem;
+            font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 500;
+            color: var(--rose); line-height: 1;
+            opacity: 0; animation: fadeIn 1s ease 1.1s forwards;
         }
 
         .hero-age::after {
-            content: 'years';
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 300;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--text-faint);
-            margin-top: 0.25rem;
+            content: 'years'; display: block;
+            font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 300;
+            letter-spacing: 4px; text-transform: uppercase; color: var(--text-faint); margin-top: 0.25rem;
         }
 
         .scroll-line {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            width: 1px;
-            height: 40px;
-            background: var(--text-faint);
-            opacity: 0;
-            animation: fadeIn 1s ease 1.5s forwards;
+            position: absolute; bottom: 2rem; left: 50%;
+            width: 1px; height: 40px; background: var(--text-faint);
+            opacity: 0; animation: fadeIn 1s ease 1.5s forwards;
         }
 
         .scroll-line::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -1px;
-            width: 3px;
-            height: 12px;
-            background: var(--rose-light);
-            border-radius: 2px;
+            content: ''; position: absolute; bottom: 0; left: -1px;
+            width: 3px; height: 12px; background: var(--rose-light); border-radius: 2px;
             animation: scrollPulse 2s ease-in-out infinite;
         }
 
@@ -206,126 +143,145 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== SECTION SHARED ===== */
-        section {
-            padding: 5rem 1.5rem;
-        }
+        /* ===== SECTIONS SHARED ===== */
+        section { padding: 5rem 1.5rem; }
 
         .section-label {
-            font-size: 0.65rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--sage);
-            margin-bottom: 1rem;
+            font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--sage); margin-bottom: 1rem;
         }
 
         .section-heading {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            font-size: 2rem;
-            line-height: 1.3;
-            margin-bottom: 2rem;
-            color: var(--text);
+            font-family: 'Cormorant Garamond', serif; font-weight: 400;
+            font-size: 2rem; line-height: 1.3; margin-bottom: 2rem; color: var(--text);
         }
 
-        .section-heading em {
-            font-style: italic;
-            color: var(--rose);
-        }
+        .section-heading em { font-style: italic; color: var(--rose); }
 
-        /* ===== COUNTER ===== */
-        .counter-section {
+        /* ===== CASCADING COUNTER ===== */
+        .cascade-section {
             background: var(--warm);
+            padding-bottom: 3rem;
         }
 
-        .counter-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            background: var(--rose-pale);
-            border-radius: 16px;
-            overflow: hidden;
+        .cascade-track {
             max-width: 480px;
             margin: 0 auto;
+            position: relative;
+            padding-left: 24px;
         }
 
-        .counter-cell {
+        .cascade-track::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--rose-pale);
+        }
+
+        .cascade-block {
+            position: relative;
+            padding: 1.5rem 0 1.5rem 1.5rem;
+            opacity: 0;
+            transform: translateY(30px) scale(0.97);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .cascade-block.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .cascade-block::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
             background: var(--cream);
-            padding: 1.8rem 1rem;
-            text-align: center;
-            transition: background 0.5s ease, transform 0.4s ease;
+            border: 2px solid var(--rose-pale);
+            transition: background 0.4s ease, border-color 0.4s ease;
+            z-index: 1;
         }
 
-        .counter-cell.active {
-            background: var(--blush);
+        .cascade-block.active::before {
+            background: var(--rose);
+            border-color: var(--rose);
         }
 
-        .counter-value {
+        .cascade-inner {
+            background: var(--cream);
+            border: 1px solid var(--rose-pale);
+            border-radius: 14px;
+            padding: 1.8rem 1.5rem;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .cascade-block.active .cascade-inner {
+            border-color: var(--rose-light);
+            box-shadow: 0 4px 24px rgba(196, 114, 127, 0.1);
+        }
+
+        .cascade-value {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-size: 2rem;
             font-weight: 500;
             color: var(--text);
             line-height: 1;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
             font-variant-numeric: tabular-nums;
-            transition: color 0.3s ease;
+            transition: color 0.4s ease;
         }
 
-        .counter-cell.active .counter-value {
+        .cascade-block.active .cascade-value {
             color: var(--rose);
         }
 
-        .counter-unit {
+        .cascade-unit {
             font-size: 0.65rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-faint);
+            margin-bottom: 0.5rem;
+        }
+
+        .cascade-note {
+            font-size: 0.78rem;
+            color: var(--text-faint);
+            font-style: italic;
+            line-height: 1.5;
         }
 
         /* ===== LETTER ===== */
-        .letter-section {
-            background: var(--cream);
-        }
+        .letter-section { background: var(--cream); }
 
-        .letter {
-            max-width: 480px;
-            margin: 0 auto;
-        }
+        .letter { max-width: 480px; margin: 0 auto; }
 
         .letter p {
-            font-size: 0.95rem;
-            line-height: 1.9;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
+            font-size: 0.95rem; line-height: 1.9; color: var(--text-light); margin-bottom: 1.5rem;
         }
 
         .letter p:first-of-type::first-letter {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 500;
-            float: left;
-            line-height: 1;
-            margin-right: 0.5rem;
-            margin-top: 0.1rem;
-            color: var(--rose);
+            font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 500;
+            float: left; line-height: 1; margin-right: 0.5rem; margin-top: 0.1rem; color: var(--rose);
         }
 
         .letter-sign {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--rose-pale);
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--rose);
+            margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rose-pale);
+            font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: 1.3rem; color: var(--rose);
         }
 
-        /* ===== NATURE / ANIMALS ===== */
-        .nature-section {
-            background: var(--sage-pale);
-        }
+        /* ===== FLIP CARDS (shared for animals & flowers) ===== */
+        .cards-section { background: var(--sage-pale); }
+        .cards-section.flowers-section { background: var(--blush); }
 
-        .nature-row {
+        .cards-row {
             display: flex;
             gap: 0.75rem;
             overflow-x: auto;
@@ -333,270 +289,264 @@
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        .nature-row::-webkit-scrollbar {
-            display: none;
-        }
+        .cards-row::-webkit-scrollbar { display: none; }
 
-        .nature-card {
+        .flip-card {
             flex: 0 0 140px;
+            height: 180px;
             scroll-snap-align: start;
-            background: var(--cream);
+            perspective: 600px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-front, .flip-back {
+            position: absolute;
+            inset: 0;
             border-radius: 12px;
-            padding: 1.5rem 1rem;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 0.75rem;
             text-align: center;
-            transition: transform 0.3s ease;
         }
 
-        .nature-card:hover {
-            transform: translateY(-4px);
+        .flip-front {
+            background: var(--cream);
         }
 
-        .nature-icon {
-            font-size: 2.2rem;
+        .flip-back {
+            background: var(--cream);
+            border: 1px solid var(--rose-pale);
+            transform: rotateY(180deg);
+            justify-content: flex-start;
+            padding-top: 1.2rem;
+        }
+
+        .flip-back-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--rose);
+            margin-bottom: 0.5rem;
+        }
+
+        .flip-back-text {
+            font-size: 0.68rem;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+
+        .flip-back-hint {
+            position: absolute;
+            bottom: 0.6rem;
+            font-size: 0.55rem;
+            color: var(--text-faint);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
             margin-bottom: 0.75rem;
-            display: block;
         }
 
-        .nature-name {
+        .card-name {
             font-size: 0.75rem;
             letter-spacing: 1px;
             color: var(--text-light);
         }
 
-        /* ===== WISHES ===== */
-        .wishes-section {
-            background: var(--cream);
+        .card-tap {
+            font-size: 0.55rem;
+            color: var(--text-faint);
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .wishes {
+        /* ===== ACROSTIC (L-Y-K-A) ===== */
+        .acrostic-section {
+            background: var(--warm);
+        }
+
+        .acrostic {
             max-width: 480px;
             margin: 0 auto;
         }
 
-        .wish {
-            padding: 1.2rem 0;
+        .acrostic-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            padding: 1.5rem 0;
             border-bottom: 1px solid var(--rose-pale);
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: var(--text-light);
             opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateX(-20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .wish.visible {
+        .acrostic-row.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
 
-        .wish:last-child {
+        .acrostic-row:last-child {
             border-bottom: none;
         }
 
-        .wish-num {
+        .acrostic-letter {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 3.5rem;
+            font-weight: 600;
             color: var(--rose);
-            margin-right: 0.75rem;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 48px;
+            text-align: center;
+        }
+
+        .acrostic-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            padding-top: 0.6rem;
+        }
+
+        .acrostic-text strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* ===== WISHES ===== */
+        .wishes-section { background: var(--cream); }
+
+        .wishes { max-width: 480px; margin: 0 auto; }
+
+        .wish {
+            padding: 1.2rem 0; border-bottom: 1px solid var(--rose-pale);
+            font-size: 0.9rem; line-height: 1.7; color: var(--text-light);
+            opacity: 0; transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .wish.visible { opacity: 1; transform: translateY(0); }
+        .wish:last-child { border-bottom: none; }
+
+        .wish-num {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+            font-weight: 500; color: var(--rose); margin-right: 0.75rem;
         }
 
         /* ===== FINAL ===== */
         .final-section {
-            background: var(--warm);
-            text-align: center;
-            padding: 6rem 1.5rem;
-            position: relative;
-            overflow: hidden;
+            background: var(--warm); text-align: center;
+            padding: 6rem 1.5rem; position: relative; overflow: hidden;
         }
 
-        .final-section .section-heading {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
+        .final-section .section-heading { font-size: 2.2rem; margin-bottom: 1.5rem; }
 
         .final-sub {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            max-width: 300px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.7;
+            font-size: 0.85rem; color: var(--text-light);
+            max-width: 300px; margin: 0 auto 2.5rem; line-height: 1.7;
         }
 
         .make-wish-btn {
-            display: inline-block;
-            padding: 0.9rem 2.5rem;
-            background: var(--rose);
-            color: white;
-            border: none;
-            border-radius: 100px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
+            display: inline-block; padding: 0.9rem 2.5rem;
+            background: var(--rose); color: white; border: none; border-radius: 100px;
+            font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 400;
+            letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
         }
 
-        .make-wish-btn:hover {
-            background: var(--rose-light);
-            transform: scale(1.03);
-        }
-
-        .make-wish-btn:active {
-            transform: scale(0.98);
-        }
+        .make-wish-btn:hover { background: var(--rose-light); transform: scale(1.03); }
+        .make-wish-btn:active { transform: scale(0.98); }
 
         /* ===== PETALS ===== */
-        .petal-canvas {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 10;
-        }
+        .petal-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
 
         .petal {
-            position: absolute;
-            top: -30px;
-            width: 12px;
-            height: 12px;
-            opacity: 0;
-            animation: petalFall linear forwards;
+            position: absolute; top: -30px; width: 12px; height: 12px;
+            opacity: 0; animation: petalFall linear forwards;
         }
 
-        .petal svg {
-            width: 100%;
-            height: 100%;
-        }
+        .petal svg { width: 100%; height: 100%; }
 
         @keyframes petalFall {
-            0% {
-                transform: translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            8% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateX(80px) rotate(360deg) translateY(105vh);
-                opacity: 0;
-            }
+            0% { transform: translateX(0) rotate(0deg); opacity: 0; }
+            8% { opacity: 0.6; }
+            100% { transform: translateX(80px) rotate(360deg) translateY(105vh); opacity: 0; }
         }
 
-        /* ===== HEARTS (subtle, on confetti burst) ===== */
-        .burst-container {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 100;
-        }
+        /* ===== BURST ===== */
+        .burst-container { position: fixed; inset: 0; pointer-events: none; z-index: 100; }
 
-        .heart-particle {
-            position: absolute;
-            font-size: 14px;
-            opacity: 0;
-            animation: burstOut ease-out forwards;
-        }
-
-        @keyframes burstOut {
-            0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
-            100% { opacity: 0; }
-        }
+        .heart-particle { position: absolute; font-size: 14px; opacity: 0; }
 
         /* ===== FOOTER ===== */
         .footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-faint);
-            background: var(--cream);
+            text-align: center; padding: 2rem 1rem;
+            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--text-faint); background: var(--cream);
         }
 
-        .footer span {
-            color: var(--rose-light);
-        }
+        .footer span { color: var(--rose-light); }
 
         /* ===== SCROLL REVEAL ===== */
         .reveal {
-            opacity: 0;
-            transform: translateY(24px);
+            opacity: 0; transform: translateY(24px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ===== DESKTOP ===== */
         @media (min-width: 768px) {
-            .hero h1 {
-                font-size: 4.5rem;
-            }
-
-            .hero-sub {
-                max-width: 360px;
-                font-size: 1rem;
-            }
-
-            .hero-age {
-                font-size: 6rem;
-            }
-
-            section {
-                padding: 7rem 2rem;
-            }
-
-            .section-heading {
-                font-size: 2.5rem;
-            }
-
-            .counter-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .counter-value {
-                font-size: 2rem;
-            }
-
-            .nature-card {
-                flex: 0 0 160px;
-            }
-
-            .letter p {
-                font-size: 1.05rem;
-            }
-
-            .final-section .section-heading {
-                font-size: 3rem;
-            }
+            .hero h1 { font-size: 4.5rem; }
+            .hero-sub { max-width: 360px; font-size: 1rem; }
+            .hero-age { font-size: 6rem; }
+            section { padding: 7rem 2rem; }
+            .section-heading { font-size: 2.5rem; }
+            .cascade-track { max-width: 520px; }
+            .cascade-value { font-size: 2.4rem; }
+            .flip-card { flex: 0 0 160px; height: 200px; }
+            .card-icon { width: 64px; height: 64px; }
+            .letter p { font-size: 1.05rem; }
+            .acrostic-letter { font-size: 4.5rem; width: 60px; }
+            .acrostic-text { font-size: 1rem; }
+            .final-section .section-heading { font-size: 3rem; }
         }
 
         @media (min-width: 1024px) {
-            .hero h1 {
-                font-size: 5.5rem;
-            }
-
-            .counter-cell {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .counter-value {
-                font-size: 2.4rem;
-            }
+            .hero h1 { font-size: 5.5rem; }
+            .cascade-track { max-width: 560px; }
+            .cascade-inner { padding: 2.2rem 2rem; }
+            .cascade-value { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Subtle petal falling -->
     <div class="petal-canvas" id="petalCanvas"></div>
     <div class="burst-container" id="burstContainer"></div>
 
@@ -616,28 +566,40 @@
         <div class="scroll-line"></div>
     </section>
 
-    <!-- ===== COUNTER ===== -->
-    <section class="counter-section">
+    <!-- ===== CASCADING COUNTER ===== -->
+    <section class="cascade-section">
         <div class="reveal">
             <p class="section-label">Time alive</p>
-            <h2 class="section-heading">Every second of <em>you</em> matters</h2>
+            <h2 class="section-heading">That's also</h2>
         </div>
-        <div class="counter-grid reveal">
-            <div class="counter-cell" data-counter>
-                <div class="counter-value" id="cDays">--</div>
-                <div class="counter-unit">days</div>
+        <div class="cascade-track">
+            <div class="cascade-block" data-cascade data-delay="0">
+                <div class="cascade-inner">
+                    <div class="cascade-value" id="cDays">--</div>
+                    <div class="cascade-unit">days</div>
+                    <div class="cascade-note">of making the world better</div>
+                </div>
             </div>
-            <div class="counter-cell" data-counter>
-                <div class="counter-value" id="cHours">--</div>
-                <div class="counter-unit">hours</div>
+            <div class="cascade-block" data-cascade data-delay="1">
+                <div class="cascade-inner">
+                    <div class="cascade-value" id="cHours">--</div>
+                    <div class="cascade-unit">hours</div>
+                    <div class="cascade-note">of kindness given freely</div>
+                </div>
             </div>
-            <div class="counter-cell" data-counter>
-                <div class="counter-value" id="cMinutes">--</div>
-                <div class="counter-unit">minutes</div>
+            <div class="cascade-block" data-cascade data-delay="2">
+                <div class="cascade-inner">
+                    <div class="cascade-value" id="cMinutes">--</div>
+                    <div class="cascade-unit">minutes</div>
+                    <div class="cascade-note">of laughter, warmth, and heart</div>
+                </div>
             </div>
-            <div class="counter-cell" data-counter>
-                <div class="counter-value" id="cSeconds">--</div>
-                <div class="counter-unit">seconds</div>
+            <div class="cascade-block" data-cascade data-delay="3">
+                <div class="cascade-inner">
+                    <div class="cascade-value" id="cSeconds">--</div>
+                    <div class="cascade-unit">seconds</div>
+                    <div class="cascade-note">and counting, every one matters</div>
+                </div>
             </div>
         </div>
     </section>
@@ -656,32 +618,188 @@
         </div>
     </section>
 
-    <!-- ===== NATURE / ANIMALS ===== -->
-    <section class="nature-section">
+    <!-- ===== ACROSTIC ===== -->
+    <section class="acrostic-section">
+        <div class="reveal">
+            <p class="section-label">Your name</p>
+            <h2 class="section-heading">What <em>Lyka</em> means to me</h2>
+        </div>
+        <div class="acrostic">
+            <div class="acrostic-row">
+                <div class="acrostic-letter">L</div>
+                <div class="acrostic-text"><strong>Light</strong> in every room you walk into, even on the quietest days. You carry a warmth that people feel before you say a word.</div>
+            </div>
+            <div class="acrostic-row">
+                <div class="acrostic-letter">Y</div>
+                <div class="acrostic-text"><strong>You</strong> always know how to make someone feel seen. It's a rare gift, and you give it so naturally.</div>
+            </div>
+            <div class="acrostic-row">
+                <div class="acrostic-letter">K</div>
+                <div class="acrostic-text"><strong>Kindness</strong> that runs deep, not the kind for show but the kind that stays long after you've left.</div>
+            </div>
+            <div class="acrostic-row">
+                <div class="acrostic-letter">A</div>
+                <div class="acrostic-text"><strong>Always</strong> there when it matters most. You're the kind of friend people are lucky to find once in a lifetime.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ANIMALS ===== -->
+    <section class="cards-section">
         <div class="reveal">
             <p class="section-label">Your world</p>
             <h2 class="section-heading">Creatures that <em>adore</em> you</h2>
         </div>
-        <div class="nature-row reveal">
-            <div class="nature-card">
-                <span class="nature-icon">&#x1F431;</span>
-                <span class="nature-name">Cats</span>
+        <div class="cards-row reveal">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><path d="M25 18c-5 0-10 4-10 10 0 3 1 5 3 7l22 27 22-27c2-2 3-4 3-7 0-6-5-10-10-10-4 0-8 3-10 6l-5 7-5-7c-2-3-6-6-10-6z" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="35" r="1.5" fill="var(--text)"/><circle cx="48" cy="35" r="1.5" fill="var(--text)"/><path d="M37 40q3 3 6 0" fill="none" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round"/><path d="M20 20c-2-6 2-12 8-10M60 20c2-6-2-12-8-10" fill="none" stroke="var(--rose-light)" stroke-width="2" stroke-linecap="round"/></svg>
+                        <span class="card-name">Cat</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Cat</div>
+                        <div class="flip-back-text">Independent yet affectionate. They choose who to love, and they'd definitely choose you, Lyka.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
             </div>
-            <div class="nature-card">
-                <span class="nature-icon">&#x1F436;</span>
-                <span class="nature-name">Dogs</span>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><ellipse cx="40" cy="48" rx="18" ry="16" fill="none" stroke="var(--rose)" stroke-width="2.5"/><circle cx="33" cy="44" r="1.5" fill="var(--text)"/><circle cx="47" cy="44" r="1.5" fill="var(--text)"/><ellipse cx="40" cy="49" rx="3" ry="2" fill="var(--text)" opacity="0.6"/><path d="M37 53q3 2 6 0" fill="none" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round"/><path d="M22 38c-4-12 4-22 18-22s22 10 18 22" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round"/><path d="M17 42q-6-4-4-10M63 42q6-4 4-10" fill="none" stroke="var(--rose-light)" stroke-width="2" stroke-linecap="round"/><path d="M32 62q8 6 16 0" fill="none" stroke="var(--rose-light)" stroke-width="2" stroke-linecap="round"/></svg>
+                        <span class="card-name">Dog</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Dog</div>
+                        <div class="flip-back-text">Loyal to the end and full of joy. The kind of pure, unconditional love that matches your spirit.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
             </div>
-            <div class="nature-card">
-                <span class="nature-icon">&#x1F430;</span>
-                <span class="nature-name">Rabbits</span>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><ellipse cx="40" cy="50" rx="14" ry="16" fill="none" stroke="var(--rose)" stroke-width="2.5"/><path d="M34 34c-2-14-6-22-8-22s-4 8 0 22M46 34c2-14 6-22 8-22s4 8 0 22" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round"/><circle cx="35" cy="47" r="1.5" fill="var(--text)"/><circle cx="45" cy="47" r="1.5" fill="var(--text)"/><path d="M38 52q2 1.5 4 0" fill="none" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round"/><circle cx="30" cy="52" r="3" fill="var(--rose-pale)"/><circle cx="50" cy="52" r="3" fill="var(--rose-pale)"/></svg>
+                        <span class="card-name">Rabbit</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Rabbit</div>
+                        <div class="flip-back-text">Gentle, curious, and quietly brave. They remind us that softness is its own kind of strength.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
             </div>
-            <div class="nature-card">
-                <span class="nature-icon">&#x1F98B;</span>
-                <span class="nature-name">Butterflies</span>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><path d="M20 28c0-8 8-16 20-16s20 8 20 16c0 20-20 36-20 36S20 48 20 28z" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round"/><circle cx="34" cy="30" r="2" fill="var(--text)"/><circle cx="46" cy="30" r="2" fill="var(--text)"/><path d="M37 36q3 2 6 0" fill="none" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 24q-2-8 4-10M64 24q2-8-4-10" fill="none" stroke="var(--sage-light)" stroke-width="2" stroke-linecap="round"/><circle cx="28" cy="34" r="3" fill="var(--rose-pale)"/><circle cx="52" cy="34" r="3" fill="var(--rose-pale)"/></svg>
+                        <span class="card-name">Hamster</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Hamster</div>
+                        <div class="flip-back-text">Small but full of personality. They store happiness in their cheeks, just like you store warmth in your heart.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
             </div>
-            <div class="nature-card">
-                <span class="nature-icon">&#x1F43E;</span>
-                <span class="nature-name">All of them</span>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><path d="M20 52c0-16 10-32 20-32s20 16 20 32" fill="none" stroke="var(--sage)" stroke-width="2.5"/><path d="M24 52q16 10 32 0" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><circle cx="34" cy="42" r="1.5" fill="var(--text)"/><circle cx="46" cy="42" r="1.5" fill="var(--text)"/><path d="M38 47q2 1.5 4 0" fill="none" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round"/><path d="M15 36q-8-2-6-8M65 36q8-2 6-8" fill="none" stroke="var(--sage-light)" stroke-width="2.5" stroke-linecap="round"/><path d="M15 40q-6 0-5 4M65 40q6 0 5 4" fill="none" stroke="var(--sage-light)" stroke-width="2" stroke-linecap="round"/></svg>
+                        <span class="card-name">Deer</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Deer</div>
+                        <div class="flip-back-text">Graceful, gentle, and at home in nature. They move through the world with quiet beauty, just like you.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FLOWERS ===== -->
+    <section class="cards-section flowers-section">
+        <div class="reveal">
+            <p class="section-label">In bloom</p>
+            <h2 class="section-heading">Flowers that <em>remind</em> me of you</h2>
+        </div>
+        <div class="cards-row reveal">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><line x1="40" y1="78" x2="40" y2="42" stroke="var(--sage)" stroke-width="2"/><path d="M40 60c-6 0-12-4-14-2s0 6 4 6" fill="none" stroke="var(--sage)" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="40" cy="30" rx="5" ry="12" fill="none" stroke="var(--rose)" stroke-width="1.8"/><ellipse cx="40" cy="30" rx="5" ry="12" fill="none" stroke="var(--rose)" stroke-width="1.8" transform="rotate(60 40 30)"/><ellipse cx="40" cy="30" rx="5" ry="12" fill="none" stroke="var(--rose)" stroke-width="1.8" transform="rotate(120 40 30)"/><circle cx="40" cy="30" r="4" fill="var(--rose-pale)" stroke="var(--rose-light)" stroke-width="1"/></svg>
+                        <span class="card-name">Lotus</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Lotus</div>
+                        <div class="flip-back-text">Rises from the mud into something beautiful. A symbol of resilience and purity. Just like you.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><line x1="40" y1="78" x2="40" y2="40" stroke="var(--sage)" stroke-width="2"/><path d="M40 58c6-2 12-6 14-4s-2 6-6 5" fill="none" stroke="var(--sage)" stroke-width="1.5" stroke-linecap="round"/><circle cx="40" cy="28" r="12" fill="none" stroke="var(--rose)" stroke-width="1.8"/><circle cx="40" cy="24" r="5" fill="none" stroke="var(--rose-light)" stroke-width="1.5"/><path d="M34 20q6-4 12 0" fill="none" stroke="var(--rose)" stroke-width="1.5" stroke-linecap="round"/><path d="M32 30q8 6 16 0" fill="none" stroke="var(--rose)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <span class="card-name">Peony</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Peony</div>
+                        <div class="flip-back-text">Lush, romantic, and full of layers. They represent prosperity, good fortune, and a happy life ahead.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><line x1="40" y1="78" x2="40" y2="44" stroke="var(--sage)" stroke-width="2"/><path d="M40 62c-8 0-14-6-16-3s2 6 6 5" fill="none" stroke="var(--sage)" stroke-width="1.5" stroke-linecap="round"/><path d="M40 18c-3 0-6 4-6 8s3 8 6 12c3-4 6-8 6-12s-3-8-6-8z" fill="none" stroke="var(--rose)" stroke-width="1.8"/><path d="M28 24c0-3 4-6 8-4-2-4 0-8 4-8" fill="none" stroke="var(--rose-light)" stroke-width="1.8" stroke-linecap="round"/><path d="M52 24c0-3-4-6-8-4 2-4 0-8-4-8" fill="none" stroke="var(--rose-light)" stroke-width="1.8" stroke-linecap="round"/><path d="M30 32c-2 2-2 6 2 8q8 4 16 0c4-2 4-6 2-8" fill="none" stroke="var(--rose)" stroke-width="1.8" stroke-linecap="round"/></svg>
+                        <span class="card-name">Rose</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Rose</div>
+                        <div class="flip-back-text">Timeless and deeply loved. Pink roses mean gratitude and admiration, both of which you deserve endlessly.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><line x1="40" y1="78" x2="40" y2="42" stroke="var(--sage)" stroke-width="2"/><path d="M40 55c5-3 10-8 12-5s-3 6-7 5" fill="none" stroke="var(--sage)" stroke-width="1.5" stroke-linecap="round"/><circle cx="40" cy="28" r="3" fill="var(--rose-pale)" stroke="var(--rose-light)" stroke-width="1"/><path d="M40 16v-2M40 42v-2" fill="none" stroke="var(--rose-light)" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="40" cy="20" rx="3.5" ry="6" fill="none" stroke="var(--rose)" stroke-width="1.8"/><ellipse cx="34" cy="26" rx="3.5" ry="6" fill="none" stroke="var(--rose)" stroke-width="1.8" transform="rotate(-55 34 26)"/><ellipse cx="46" cy="26" rx="3.5" ry="6" fill="none" stroke="var(--rose)" stroke-width="1.8" transform="rotate(55 46 26)"/><ellipse cx="46" cy="34" rx="3.5" ry="6" fill="none" stroke="var(--rose-light)" stroke-width="1.5" transform="rotate(120 46 34)"/><ellipse cx="34" cy="34" rx="3.5" ry="6" fill="none" stroke="var(--rose-light)" stroke-width="1.5" transform="rotate(-120 34 34)"/></svg>
+                        <span class="card-name">Cherry Blossom</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Cherry Blossom</div>
+                        <div class="flip-back-text">Fleeting and precious. A reminder to cherish every beautiful moment, especially the ones with you.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <svg class="card-icon" viewBox="0 0 80 80"><line x1="40" y1="78" x2="40" y2="45" stroke="var(--sage)" stroke-width="2"/><path d="M40 65c-5-1-10-5-13-3s1 5 5 5" fill="none" stroke="var(--sage)" stroke-width="1.5" stroke-linecap="round"/><circle cx="40" cy="30" r="8" fill="var(--rose-pale)" opacity="0.4"/><path d="M40 18c2 4 2 8 0 12M36 22c2 2 6 2 8 0M36 32c2 2 6 2 8 0" fill="none" stroke="var(--rose)" stroke-width="1.8" stroke-linecap="round"/><path d="M32 26q-4-4-2-8M48 26q4-4 2-8" fill="none" stroke="var(--rose-light)" stroke-width="1.5" stroke-linecap="round"/><path d="M30 34q-2 4 2 6M50 34q2 4-2 6" fill="none" stroke="var(--rose-light)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <span class="card-name">Water Lily</span>
+                        <span class="card-tap">tap to flip</span>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-back-title">Water Lily</div>
+                        <div class="flip-back-text">Floating calm and beautiful above still water. A symbol of peace, grace, and new beginnings.</div>
+                        <span class="flip-back-hint">tap again</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -712,23 +830,20 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         made with <span>&hearts;</span> for lyka
     </footer>
 
     <script>
         // ===== BIRTHDAY =====
-        const birthday = new Date(2000, 5, 28); // June 28, 2000
+        const birthday = new Date(2000, 5, 28);
 
         function updateCounters() {
-            const now = new Date();
-            const diff = now - birthday;
+            const diff = Date.now() - birthday.getTime();
             const s = Math.floor(diff / 1000);
             const m = Math.floor(s / 60);
             const h = Math.floor(m / 60);
             const d = Math.floor(h / 24);
-
             setText('cDays', d.toLocaleString());
             setText('cHours', h.toLocaleString());
             setText('cMinutes', m.toLocaleString());
@@ -743,18 +858,17 @@
         updateCounters();
         setInterval(updateCounters, 1000);
 
-        // ===== SCROLL REVEAL =====
+        // ===== SCROLL HANDLING =====
         const reveals = document.querySelectorAll('.reveal');
         const wishes = document.querySelectorAll('.wish');
-        const counterCells = document.querySelectorAll('[data-counter]');
+        const cascadeBlocks = document.querySelectorAll('[data-cascade]');
+        const acrosticRows = document.querySelectorAll('.acrostic-row');
 
         function onScroll() {
             const vh = window.innerHeight;
 
             reveals.forEach(el => {
-                if (el.getBoundingClientRect().top < vh * 0.88) {
-                    el.classList.add('visible');
-                }
+                if (el.getBoundingClientRect().top < vh * 0.88) el.classList.add('visible');
             });
 
             wishes.forEach((w, i) => {
@@ -763,33 +877,43 @@
                 }
             });
 
-            // Counter cells react to scroll position
-            counterCells.forEach(cell => {
-                const r = cell.getBoundingClientRect();
-                const inView = r.top < vh * 0.75 && r.bottom > vh * 0.25;
-                cell.classList.toggle('active', inView);
+            // Cascade blocks: staggered reveal + active state
+            cascadeBlocks.forEach(block => {
+                const r = block.getBoundingClientRect();
+                const delay = parseInt(block.dataset.delay) || 0;
+
+                if (r.top < vh * 0.85) {
+                    setTimeout(() => block.classList.add('visible'), delay * 200);
+                }
+
+                const inView = r.top < vh * 0.7 && r.bottom > vh * 0.3;
+                block.classList.toggle('active', inView);
+            });
+
+            // Acrostic rows
+            acrosticRows.forEach((row, i) => {
+                if (row.getBoundingClientRect().top < vh * 0.85) {
+                    setTimeout(() => row.classList.add('visible'), i * 150);
+                }
             });
         }
 
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
 
-        // ===== SUBTLE PETALS =====
+        // ===== PETALS =====
         function dropPetal() {
             const canvas = document.getElementById('petalCanvas');
             const petal = document.createElement('div');
             petal.className = 'petal';
-
             const size = Math.random() * 10 + 8;
             const hue = Math.random() > 0.5 ? '348, 50%, 78%' : '100, 20%, 72%';
-            petal.innerHTML = `<svg viewBox="0 0 12 12"><ellipse cx="6" cy="6" rx="5" ry="3" fill="hsla(${hue}, 0.5)" transform="rotate(${Math.random()*40-20} 6 6)"/></svg>`;
-
+            petal.innerHTML = '<svg viewBox="0 0 12 12"><ellipse cx="6" cy="6" rx="5" ry="3" fill="hsla(' + hue + ', 0.5)" transform="rotate(' + (Math.random()*40-20) + ' 6 6)"/></svg>';
             petal.style.left = Math.random() * 100 + '%';
             petal.style.width = size + 'px';
             petal.style.height = size + 'px';
             petal.style.animationDuration = (Math.random() * 6 + 8) + 's';
             petal.style.animationDelay = (Math.random() * 2) + 's';
-
             canvas.appendChild(petal);
             setTimeout(() => petal.remove(), 16000);
         }
@@ -804,29 +928,23 @@
             const cx = btn.left + btn.width / 2;
             const cy = btn.top + btn.height / 2;
             const hearts = ['\u2665', '\u2764', '\u2661'];
-            const colors = ['var(--rose)', 'var(--rose-light)', 'var(--sage-light)', 'var(--rose-pale)'];
+            const colors = ['#c4727f', '#e8a0aa', '#b5c4a8', '#f5dde0'];
 
             for (let i = 0; i < 24; i++) {
                 const h = document.createElement('div');
                 h.className = 'heart-particle';
                 h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-
                 const angle = (Math.PI * 2 * i) / 24 + (Math.random() * 0.3);
                 const dist = 60 + Math.random() * 120;
                 const tx = Math.cos(angle) * dist;
                 const ty = Math.sin(angle) * dist - 40;
-
                 h.style.left = cx + 'px';
                 h.style.top = cy + 'px';
                 h.style.color = colors[Math.floor(Math.random() * colors.length)];
                 h.style.fontSize = (Math.random() * 10 + 10) + 'px';
-                h.style.animationDuration = (Math.random() * 0.6 + 0.8) + 's';
+                h.style.animation = 'burstHeart ' + (0.8 + Math.random() * 0.5) + 's ease-out forwards';
                 h.style.setProperty('--tx', tx + 'px');
                 h.style.setProperty('--ty', ty + 'px');
-                h.style.animation = 'none';
-                h.offsetHeight; // reflow
-                h.style.animation = `burstHeart ${0.8 + Math.random() * 0.5}s ease-out forwards`;
-
                 container.appendChild(h);
                 setTimeout(() => h.remove(), 2000);
             }
@@ -835,16 +953,10 @@
             setTimeout(() => { this.textContent = 'Make a wish'; }, 1500);
         });
 
-        // Dynamic keyframes for heart burst
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes burstHeart {
-                0% { transform: translate(0, 0) scale(0.3); opacity: 1; }
-                60% { opacity: 1; }
-                100% { transform: translate(var(--tx), var(--ty)) scale(1); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
+        // Burst keyframes
+        const s = document.createElement('style');
+        s.textContent = '@keyframes burstHeart{0%{transform:translate(0,0) scale(.3);opacity:1}60%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}';
+        document.head.appendChild(s);
     </script>
 </body>
 </html>
