@@ -23,6 +23,10 @@
             --text: #3a3535;
             --text-light: #7a7070;
             --text-faint: #b0a5a5;
+            --gold: #d4a574;
+            --gold-light: #e8c9a0;
+            --lavender: #c4b5d4;
+            --lavender-pale: #e8dff0;
         }
 
         html { scroll-behavior: smooth; }
@@ -551,11 +555,413 @@
             .marquee-item { height: 3.6rem; }
         }
 
+        /* ===== SECTION DIVIDERS ===== */
+        .section-divider {
+            width: 100%;
+            height: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .section-divider svg { width: 100%; height: 100%; display: block; }
+
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+        .divider-ornament::before, .divider-ornament::after {
+            content: '';
+            flex: 1;
+            max-width: 120px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--rose-pale), transparent);
+        }
+        .divider-ornament svg { width: 20px; height: 20px; opacity: 0.5; flex-shrink: 0; }
+
+        /* ===== FLOATING SPARKLES ===== */
+        .sparkle-field {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--rose-light);
+            animation: sparkleFloat 6s ease-in-out infinite, sparklePulse 2s ease-in-out infinite;
+        }
+        @keyframes sparkleFloat {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-10px) translateX(-5px); }
+            75% { transform: translateY(-25px) translateX(15px); }
+        }
+        @keyframes sparklePulse {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.5); }
+        }
+        .sparkle.gold { background: var(--gold-light); }
+        .sparkle.lavender { background: var(--lavender); }
+
+        /* ===== HERO ENHANCEMENTS ===== */
+        .hero { background: linear-gradient(170deg, var(--cream) 0%, var(--blush) 40%, var(--cream) 70%, var(--warm) 100%); }
+        .hero-content { position: relative; z-index: 2; }
+
+        .hero h1 em {
+            background: linear-gradient(135deg, var(--rose), #d4727f, var(--rose-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-age {
+            background: linear-gradient(135deg, var(--rose), var(--rose-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid var(--rose-pale);
+            opacity: 0;
+            animation: ringExpand 4s ease-out infinite;
+            pointer-events: none;
+        }
+        .hero-ring:nth-child(1) { width: 200px; height: 200px; top: 50%; left: 50%; margin: -100px 0 0 -100px; }
+        .hero-ring:nth-child(2) { width: 300px; height: 300px; top: 50%; left: 50%; margin: -150px 0 0 -150px; animation-delay: 1.3s; }
+        .hero-ring:nth-child(3) { width: 400px; height: 400px; top: 50%; left: 50%; margin: -200px 0 0 -200px; animation-delay: 2.6s; }
+
+        @keyframes ringExpand {
+            0% { transform: scale(0.5); opacity: 0.4; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* ===== BOTANICAL CORNER ORNAMENTS ===== */
+        .botanical-frame { position: relative; }
+        .botanical-corner {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .botanical-corner.top-left { top: 0; left: 0; }
+        .botanical-corner.top-right { top: 0; right: 0; transform: scaleX(-1); }
+        .botanical-corner.bottom-left { bottom: 0; left: 0; transform: scaleY(-1); }
+        .botanical-corner.bottom-right { bottom: 0; right: 0; transform: scale(-1); }
+
+        /* ===== ENHANCED LETTER ===== */
+        .letter-section {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--blush) 50%, var(--cream) 100%);
+            position: relative;
+        }
+        .letter {
+            position: relative;
+            padding: 2rem 1.5rem;
+            background: rgba(255,255,255,0.5);
+            border-radius: 20px;
+            border: 1px solid var(--rose-pale);
+            backdrop-filter: blur(10px);
+        }
+        .letter::before {
+            content: '\201C';
+            position: absolute;
+            top: -0.2rem;
+            left: 0.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            color: var(--rose-pale);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* ===== ENHANCED CASCADE ===== */
+        .cascade-section {
+            background: linear-gradient(180deg, var(--warm) 0%, var(--blush) 100%);
+            position: relative;
+        }
+        .cascade-inner {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(250,240,242,0.6));
+            border: 1px solid var(--rose-pale);
+            border-radius: 14px;
+            padding: 1.8rem 1.5rem;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease, transform 0.3s ease;
+        }
+        .cascade-block.active .cascade-inner {
+            border-color: var(--rose-light);
+            box-shadow: 0 8px 32px rgba(196, 114, 127, 0.15), 0 0 0 1px rgba(196,114,127,0.08);
+            transform: translateX(4px);
+        }
+
+        /* ===== ENHANCED FLIP CARDS ===== */
+        .flip-front {
+            background: linear-gradient(135deg, var(--cream), white);
+            border: 1px solid var(--rose-pale);
+            position: relative;
+            overflow: hidden;
+        }
+        .flip-front::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, transparent 40%, rgba(196,114,127,0.06) 50%, transparent 60%);
+            animation: cardShimmer 3s ease-in-out infinite;
+        }
+        @keyframes cardShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(25deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(25deg); }
+        }
+        .flip-card:hover .flip-front {
+            border-color: var(--rose-light);
+            box-shadow: 0 8px 24px rgba(196,114,127,0.15);
+        }
+        .flip-back {
+            background: linear-gradient(135deg, white, var(--blush));
+            border: 1px solid var(--rose-light);
+        }
+
+        /* ===== ENHANCED WISHES ===== */
+        .wishes-section {
+            background: linear-gradient(180deg, var(--cream), var(--warm), var(--cream));
+            position: relative;
+        }
+        .wish {
+            padding: 1.4rem 0 1.4rem 0;
+            border-bottom: 1px solid var(--rose-pale);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s ease;
+            border-radius: 8px;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        .wish:hover {
+            background: rgba(196,114,127,0.04);
+        }
+        .wish-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-right: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--rose-pale), var(--lavender-pale));
+            color: var(--rose);
+        }
+
+        /* ===== ENHANCED ACROSTIC ===== */
+        .acrostic-section {
+            background: linear-gradient(180deg, var(--warm), var(--blush), var(--warm));
+            position: relative;
+        }
+        .acrostic-row {
+            border-bottom: 1px solid rgba(196,114,127,0.15);
+            transition: opacity 0.7s ease, transform 0.7s ease, background 0.3s ease;
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+        }
+        .acrostic-row:hover {
+            background: rgba(255,255,255,0.5);
+        }
+        .acrostic-letter {
+            background: linear-gradient(135deg, var(--rose), var(--rose-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== ENHANCED FINAL SECTION ===== */
+        .final-section {
+            background: linear-gradient(180deg, var(--warm) 0%, var(--blush) 30%, var(--cream) 60%, var(--warm) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .final-stars {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .final-star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--rose-light);
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* ===== ENHANCED MARQUEE ===== */
+        .marquee-section {
+            background: linear-gradient(180deg, var(--blush), rgba(232,160,170,0.1), var(--blush));
+            position: relative;
+        }
+
+        /* ===== FLOATING HEARTS LAYER ===== */
+        .floating-hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+        .floating-heart {
+            position: absolute;
+            font-size: 10px;
+            color: var(--rose-pale);
+            animation: floatUp linear infinite;
+            opacity: 0;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) translateX(40px) rotate(180deg) scale(1); opacity: 0; }
+        }
+
+        /* ===== CARDS SECTION ENHANCEMENTS ===== */
+        .cards-section {
+            background: linear-gradient(135deg, var(--sage-pale), #e9efe4, var(--sage-pale));
+            position: relative;
+        }
+        .cards-section.flowers-section {
+            background: linear-gradient(135deg, var(--blush), #fef6f8, var(--blush));
+        }
+
+        /* ===== ENHANCED FOOTER ===== */
+        .footer {
+            background: linear-gradient(180deg, var(--cream), var(--warm));
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--rose-pale), transparent);
+        }
+
+        /* ===== SECTION PATTERN OVERLAY ===== */
+        .pattern-dots {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: radial-gradient(var(--rose) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* ===== ENHANCED SECTION LABELS ===== */
+        .section-label {
+            position: relative;
+            display: inline-block;
+        }
+        .section-label::after {
+            content: '';
+            display: block;
+            width: 2rem;
+            height: 1px;
+            background: var(--sage);
+            margin-top: 0.5rem;
+        }
+
+        /* ===== ENHANCED MAKE-WISH BUTTON ===== */
+        .make-wish-btn {
+            background: linear-gradient(135deg, var(--rose), #d4727f);
+            position: relative;
+            overflow: hidden;
+        }
+        .make-wish-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+            animation: btnShimmer 2.5s ease-in-out infinite;
+        }
+        @keyframes btnShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(25deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(25deg); }
+        }
+        .make-wish-btn:hover {
+            background: linear-gradient(135deg, var(--rose-light), var(--rose));
+        }
+
+        /* ===== ENHANCED INTRO BUTTON ===== */
+        .intro-btn {
+            border: 1px solid rgba(196, 114, 127, 0.4);
+            background: rgba(196, 114, 127, 0.08);
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+        .intro-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, transparent 40%, rgba(232,160,170,0.15) 50%, transparent 60%);
+            animation: btnShimmer 3s ease-in-out infinite;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 4.5rem; }
+            .hero-sub { max-width: 360px; font-size: 1rem; }
+            .hero-age { font-size: 6rem; }
+            .intro-btn { font-size: 1.8rem; padding: 1.2rem 3.5rem; }
+            section { padding: 7rem 2rem; }
+            .section-heading { font-size: 2.5rem; }
+            .cascade-track { max-width: 520px; }
+            .cascade-value { font-size: 2.4rem; }
+            .flip-card { flex: 0 0 160px; height: 200px; }
+            .card-icon { width: 64px; height: 64px; }
+            .letter p { font-size: 1.05rem; }
+            .letter { padding: 2.5rem 2rem; }
+            .acrostic-letter { font-size: 4.5rem; width: 60px; }
+            .acrostic-text { font-size: 1rem; }
+            .final-section .section-heading { font-size: 3rem; }
+            .marquee-prefix, .marquee-item { font-size: 3rem; }
+            .marquee-window { height: 3.6rem; }
+            .marquee-item { height: 3.6rem; }
+            .botanical-corner { width: 120px; height: 120px; }
+        }
+
         @media (min-width: 1024px) {
             .hero h1 { font-size: 5.5rem; }
             .cascade-track { max-width: 560px; }
             .cascade-inner { padding: 2.2rem 2rem; }
             .cascade-value { font-size: 2.8rem; }
+            .botanical-corner { width: 150px; height: 150px; }
         }
     </style>
 </head>
@@ -572,17 +978,31 @@
     <div class="petal-canvas" id="petalCanvas"></div>
     <div class="burst-container" id="burstContainer"></div>
 
+    <!-- ===== FLOATING HEARTS ===== -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
     <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="hero-bg"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
+        <div class="sparkle-field" id="heroSparkles"></div>
         <div class="hero-content">
             <p class="hero-date">June 28, 2026</p>
             <h1>Happy Birthday,<br><em>Lyka</em></h1>
             <p class="hero-sub">Here's a little corner of the internet, made just for you.</p>
-            <div class="hero-age">26</div>
+            <div style="position:relative; display:inline-block;">
+                <div class="hero-age">26</div>
+                <div class="hero-ring"></div>
+                <div class="hero-ring"></div>
+                <div class="hero-ring"></div>
+            </div>
         </div>
         <div class="scroll-line"></div>
     </section>
+
+    <!-- Divider -->
+    <div class="divider-ornament">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2C10 2 3 7 3 12c0 3 3 6 7 6s7-3 7-6c0-5-7-10-7-10z" fill="var(--rose-pale)"/></svg>
+    </div>
 
     <!-- ===== CASCADE COUNTER ===== -->
     <section class="cascade-section">
@@ -624,8 +1044,18 @@
         </div>
     </section>
 
+    <!-- Divider -->
+    <div class="divider-ornament">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 4l2.5 5 5.5.8-4 3.9.9 5.3L10 16.5 5.1 19l.9-5.3-4-3.9 5.5-.8z" fill="var(--gold-light)" opacity="0.6"/></svg>
+    </div>
+
     <!-- ===== LETTER ===== -->
-    <section class="letter-section">
+    <section class="letter-section botanical-frame">
+        <div class="pattern-dots"></div>
+        <svg class="botanical-corner top-left" viewBox="0 0 100 100" fill="none"><path d="M0 0 C20 10, 30 30, 25 50 C22 60, 15 65, 5 60 C-2 56, 0 48, 8 48 C14 48, 18 55, 12 60" stroke="var(--sage)" stroke-width="1.5" fill="none"/><path d="M0 0 C10 20, 8 40, 15 55 C18 62, 25 65, 30 60" stroke="var(--sage-light)" stroke-width="1" fill="none"/><circle cx="25" cy="50" r="3" fill="var(--rose-pale)"/><circle cx="15" cy="55" r="2" fill="var(--rose-pale)" opacity="0.6"/></svg>
+        <svg class="botanical-corner top-right" viewBox="0 0 100 100" fill="none"><path d="M0 0 C20 10, 30 30, 25 50 C22 60, 15 65, 5 60 C-2 56, 0 48, 8 48 C14 48, 18 55, 12 60" stroke="var(--sage)" stroke-width="1.5" fill="none"/><path d="M0 0 C10 20, 8 40, 15 55 C18 62, 25 65, 30 60" stroke="var(--sage-light)" stroke-width="1" fill="none"/><circle cx="25" cy="50" r="3" fill="var(--rose-pale)"/></svg>
+        <svg class="botanical-corner bottom-left" viewBox="0 0 100 100" fill="none"><path d="M0 0 C20 10, 30 30, 25 50 C22 60, 15 65, 5 60" stroke="var(--sage)" stroke-width="1.5" fill="none"/><circle cx="25" cy="50" r="3" fill="var(--rose-pale)"/></svg>
+        <svg class="botanical-corner bottom-right" viewBox="0 0 100 100" fill="none"><path d="M0 0 C20 10, 30 30, 25 50 C22 60, 15 65, 5 60" stroke="var(--sage)" stroke-width="1.5" fill="none"/><circle cx="25" cy="50" r="3" fill="var(--rose-pale)"/></svg>
         <div class="reveal">
             <p class="section-label">A note</p>
             <h2 class="section-heading">For someone <em>special</em></h2>
@@ -637,6 +1067,11 @@
             <div class="letter-sign">With love, always</div>
         </div>
     </section>
+
+    <!-- Divider -->
+    <div class="divider-ornament">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2C10 2 3 7 3 12c0 3 3 6 7 6s7-3 7-6c0-5-7-10-7-10z" fill="var(--rose-pale)"/></svg>
+    </div>
 
     <!-- ===== MARQUEE ===== -->
     <section class="marquee-section">
@@ -662,8 +1097,16 @@
         </div>
     </section>
 
+    <!-- Divider -->
+    <div class="divider-ornament">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 4l2.5 5 5.5.8-4 3.9.9 5.3L10 16.5 5.1 19l.9-5.3-4-3.9 5.5-.8z" fill="var(--lavender-pale)" opacity="0.6"/></svg>
+    </div>
+
     <!-- ===== ACROSTIC ===== -->
-    <section class="acrostic-section">
+    <section class="acrostic-section botanical-frame">
+        <div class="pattern-dots"></div>
+        <svg class="botanical-corner top-right" viewBox="0 0 100 100" fill="none"><path d="M0 0 C20 10, 30 30, 25 50 C22 60, 15 65, 5 60" stroke="var(--rose-light)" stroke-width="1.5" fill="none" opacity="0.4"/><circle cx="25" cy="50" r="3" fill="var(--rose-pale)"/></svg>
+        <svg class="botanical-corner bottom-left" viewBox="0 0 100 100" fill="none"><path d="M0 0 C20 10, 30 30, 25 50 C22 60, 15 65, 5 60" stroke="var(--rose-light)" stroke-width="1.5" fill="none" opacity="0.4"/><circle cx="25" cy="50" r="3" fill="var(--rose-pale)"/></svg>
         <div class="reveal">
             <p class="section-label">Your name</p>
             <h2 class="section-heading">What <em>Lyka</em> means to me</h2>
@@ -687,6 +1130,11 @@
             </div>
         </div>
     </section>
+
+    <!-- Divider -->
+    <div class="divider-ornament">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2C10 2 3 7 3 12c0 3 3 6 7 6s7-3 7-6c0-5-7-10-7-10z" fill="var(--sage-pale)"/></svg>
+    </div>
 
     <!-- ===== ANIMALS ===== -->
     <section class="cards-section">
@@ -798,6 +1246,11 @@
         </div>
     </section>
 
+    <!-- Divider -->
+    <div class="divider-ornament">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 4l2.5 5 5.5.8-4 3.9.9 5.3L10 16.5 5.1 19l.9-5.3-4-3.9 5.5-.8z" fill="var(--gold-light)" opacity="0.6"/></svg>
+    </div>
+
     <!-- ===== WISHES ===== -->
     <section class="wishes-section">
         <div class="reveal">
@@ -814,8 +1267,15 @@
         </div>
     </section>
 
+    <!-- Divider -->
+    <div class="divider-ornament">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2C10 2 3 7 3 12c0 3 3 6 7 6s7-3 7-6c0-5-7-10-7-10z" fill="var(--rose-pale)"/></svg>
+    </div>
+
     <!-- ===== FINAL ===== -->
     <section class="final-section">
+        <div class="final-stars" id="finalStars"></div>
+        <div class="sparkle-field" id="finalSparkles"></div>
         <div class="reveal">
             <p class="section-label">One last thing</p>
             <h2 class="section-heading">Close your eyes,<br><em>make a wish</em></h2>
@@ -1414,6 +1874,77 @@
     var burstStyle = document.createElement('style');
     burstStyle.textContent = '@keyframes burstHeart{0%{transform:translate(0,0) scale(.3);opacity:1}60%{opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0}}';
     document.head.appendChild(burstStyle);
+
+    // ==========================================================
+    //  SPARKLE FIELDS
+    // ==========================================================
+    (function() {
+        function createSparkles(containerId, count) {
+            var container = document.getElementById(containerId);
+            if (!container) return;
+            var types = ['', 'gold', 'lavender'];
+            for (var i = 0; i < count; i++) {
+                var s = document.createElement('div');
+                s.className = 'sparkle ' + types[Math.floor(Math.random() * types.length)];
+                s.style.left = Math.random() * 100 + '%';
+                s.style.top = Math.random() * 100 + '%';
+                s.style.animationDelay = (Math.random() * 6) + 's';
+                s.style.animationDuration = (3 + Math.random() * 4) + 's';
+                var size = 2 + Math.random() * 4;
+                s.style.width = size + 'px';
+                s.style.height = size + 'px';
+                container.appendChild(s);
+            }
+        }
+        createSparkles('heroSparkles', 25);
+        createSparkles('finalSparkles', 20);
+    })();
+
+    // ==========================================================
+    //  TWINKLING STARS (final section)
+    // ==========================================================
+    (function() {
+        var container = document.getElementById('finalStars');
+        if (!container) return;
+        for (var i = 0; i < 40; i++) {
+            var star = document.createElement('div');
+            star.className = 'final-star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = (Math.random() * 3) + 's';
+            star.style.animationDuration = (2 + Math.random() * 3) + 's';
+            var size = 1.5 + Math.random() * 3;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            if (Math.random() > 0.6) star.style.background = 'var(--gold-light)';
+            if (Math.random() > 0.8) star.style.background = 'var(--lavender)';
+            container.appendChild(star);
+        }
+    })();
+
+    // ==========================================================
+    //  FLOATING HEARTS (subtle, global)
+    // ==========================================================
+    (function() {
+        var container = document.getElementById('floatingHearts');
+        if (!container) return;
+        var hearts = ['\u2665', '\u2661'];
+        function spawnHeart() {
+            var h = document.createElement('div');
+            h.className = 'floating-heart';
+            h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            h.style.left = Math.random() * 100 + '%';
+            h.style.fontSize = (8 + Math.random() * 8) + 'px';
+            h.style.animationDuration = (12 + Math.random() * 10) + 's';
+            h.style.animationDelay = '0s';
+            var colors = ['var(--rose-pale)', 'var(--lavender-pale)', 'var(--gold-light)'];
+            h.style.color = colors[Math.floor(Math.random() * colors.length)];
+            container.appendChild(h);
+            setTimeout(function() { h.remove(); }, 24000);
+        }
+        setInterval(spawnHeart, 4000);
+        for (var i = 0; i < 5; i++) setTimeout(spawnHeart, i * 2000);
+    })();
 
     // ==========================================================
     //  TEXT MARQUEE
